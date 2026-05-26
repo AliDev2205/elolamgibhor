@@ -48,7 +48,7 @@ export default function Home() {
     paddingLeft: "clamp(2rem, 10vw, 11rem)",
     paddingRight: "clamp(2rem, 5vw, 5rem)"
   }}
->            <AnimatedSection animation="fadeInUp" delay={0.1}>
+>            <AnimatedSection animation="fadeInUp" delay={0.1} animateOnLoad>
               <h1
                 style={{
                   fontFamily: "Georgia, 'Times New Roman', serif",
@@ -65,7 +65,7 @@ export default function Home() {
               </h1>
             </AnimatedSection>
 
-            <AnimatedSection animation="fadeInUp" delay={0.2}>
+            <AnimatedSection animation="fadeInUp" delay={0.2} animateOnLoad>
               <p
                 style={{
                   fontSize: "0.875rem",
@@ -80,7 +80,7 @@ export default function Home() {
               </p>
             </AnimatedSection>
 
-            <AnimatedSection animation="fadeInUp" delay={0.3}>
+            <AnimatedSection animation="fadeInUp" delay={0.3} animateOnLoad>
               <div className="flex flex-wrap items-center gap-3">
 
                 {/* Diagnostic — bleu foncé pill */}

@@ -12,6 +12,7 @@ interface AnimatedSectionProps {
   className?: string;
   viewportOnce?: boolean;
   viewportAmount?: number;
+  animateOnLoad?: boolean;
 }
 
 export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
@@ -22,6 +23,7 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   className = "",
   viewportOnce = true,
   viewportAmount = 0.15,
+  animateOnLoad = false,
 }) => {
   const getVariants = () => {
     switch (animation) {
@@ -44,8 +46,9 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   return (
     <motion.div
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: viewportOnce, amount: viewportAmount }}
+      animate={animateOnLoad ? "show" : undefined}
+      whileInView={animateOnLoad ? undefined : "show"}
+      viewport={animateOnLoad ? undefined : { once: viewportOnce, amount: viewportAmount }}
       variants={getVariants()}
       className={className}
     >
