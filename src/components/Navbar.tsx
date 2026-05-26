@@ -10,13 +10,13 @@ import { NAV_LINKS, LOGO_SRC } from "@/lib/constants";
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [headerHeight, setHeaderHeight] = useState(80);
+  const [headerHeight, setHeaderHeight] = useState(72);
   const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,38 +33,54 @@ export const Navbar: React.FC = () => {
     updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
-  }, [isScrolled, isOpen]);
+  }, [isScrolled]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
   }, [isOpen]);
 
-  const textColor = "text-gray-700";
-  const hoverColor = "hover:text-blue-600";
-
   return (
     <>
+      {/* ── Header ── */}
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${
-          isScrolled ? "shadow-sm py-2.5" : "py-4"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b ${
+          isScrolled ? "border-gray-200 shadow-sm py-2" : "border-transparent py-3"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="flex justify-between items-center gap-4">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="flex justify-between items-center">
 
-            <Link href="/" className="flex items-center group shrink-0 min-w-0">
+            {/* Logo */}
+            <Link href="/" className="flex items-center shrink-0" style={{ maxWidth: "180px" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={LOGO_SRC}
                 alt="EL OLAM GIBHOR"
-                className="h-14 sm:h-16 w-auto max-w-[200px] sm:max-w-[240px] object-contain transition-opacity duration-300 group-hover:opacity-90"
+                style={{
+                  height: "clamp(40px, 8vw, 56px)",
+                  width: "auto",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                  display: "block",
+                }}
               />
             </Link>
 
+            {/* Navigation desktop */}
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">
               {NAV_LINKS.map((link) => {
                 const isActive =
@@ -74,22 +90,30 @@ export const Navbar: React.FC = () => {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative text-sm font-medium transition-colors duration-300 py-2 flex items-center gap-1 ${
-                      isActive
-                        ? "text-blue-600 font-semibold"
-                        : `${textColor} ${hoverColor}`
-                    }`}
+                    style={{
+                      position: "relative",
+                      fontSize: "14px",
+                      fontWeight: isActive ? 600 : 500,
+                      color: isActive ? "#2563EB" : "#374151",
+                      textDecoration: "none",
+                      padding: "8px 0",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      transition: "color 0.2s",
+                    }}
                   >
                     {link.name}
                     {link.hasDropdown && (
-                      <ChevronDown className="h-4 w-4 opacity-60" />
+                      <ChevronDown size={14} style={{ opacity: 0.5 }} />
                     )}
                   </Link>
                 );
               })}
             </nav>
 
-            <div className="hidden md:flex items-center">
+            {/* Bouton CTA desktop */}
+            <div className="hidden md:block">
               <Link
                 href="/contact"
                 style={{
@@ -99,84 +123,99 @@ export const Navbar: React.FC = () => {
                   whiteSpace: "nowrap",
                   padding: "10px 24px",
                   backgroundColor: "#2563EB",
-                  color: "#ffffff",
+                  color: "#FFFFFF",
                   borderRadius: "9999px",
-                  fontWeight: "700",
+                  fontWeight: 600,
                   fontSize: "14px",
-                  transition: "all 0.3s",
+                  textDecoration: "none",
+                  transition: "background-color 0.2s",
                 }}
-                className="hover:bg-blue-700"
               >
                 Commencer
               </Link>
             </div>
 
-            <div className="md:hidden shrink-0">
-              <button
-                type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2.5 rounded-lg focus:outline-none cursor-pointer transition-colors text-gray-600 hover:bg-gray-100"
-                aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-                aria-expanded={isOpen}
-              >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
+            {/* Burger mobile */}
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 -mr-2 rounded-lg focus:outline-none text-gray-700 hover:bg-gray-100 transition-colors"
+              aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
       </header>
 
+      {/* ── Menu mobile fullscreen ── */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/20 md:hidden"
-              style={{ top: headerHeight }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 md:hidden"
+            style={{ top: headerHeight }}
+          >
+            {/* Fond semi-transparent */}
+            <div
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
-              aria-hidden
             />
+
+            {/* Panneau menu */}
             <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="fixed left-0 right-0 bottom-0 z-50 bg-white md:hidden flex flex-col border-t border-gray-100 shadow-lg overflow-y-auto"
-              style={{ top: headerHeight }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl flex flex-col"
             >
-              <nav className="flex flex-col gap-1 px-6 py-6">
-                {NAV_LINKS.map((link, idx) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: -8 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.04 }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsOpen(false)}
-                        className={`block py-3.5 text-lg font-semibold transition-colors ${
-                          isActive ? "text-blue-600" : "text-gray-800 hover:text-blue-600"
-                        }`}
+              {/* Liens de navigation */}
+              <div className="flex-1 overflow-y-auto px-6 pt-8 pb-4">
+                <nav className="flex flex-col gap-2">
+                  {NAV_LINKS.map((link, idx) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + idx * 0.05 }}
                       >
-                        <span className="flex items-center gap-2">
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                            padding: "14px 16px",
+                            fontSize: "17px",
+                            fontWeight: isActive ? 700 : 500,
+                            color: isActive ? "#2563EB" : "#1F2937",
+                            textDecoration: "none",
+                            borderRadius: "12px",
+                            backgroundColor: isActive ? "#EFF6FF" : "transparent",
+                            transition: "all 0.2s",
+                          }}
+                        >
                           {link.name}
                           {link.hasDropdown && (
-                            <ChevronDown className="h-5 w-5 opacity-50" />
+                            <ChevronDown size={16} style={{ opacity: 0.4 }} />
                           )}
-                        </span>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </nav>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </nav>
+              </div>
 
-              <div className="mt-auto px-6 pb-8 pt-4 border-t border-gray-100">
+              {/* Bouton CTA en bas */}
+              <div className="px-6 pb-8 pt-4 border-t border-gray-100">
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
@@ -186,22 +225,33 @@ export const Navbar: React.FC = () => {
                     justifyContent: "center",
                     padding: "16px 32px",
                     backgroundColor: "#2563EB",
-                    color: "#ffffff",
-                    borderRadius: "12px",
-                    fontWeight: "700",
+                    color: "#FFFFFF",
+                    borderRadius: "14px",
+                    fontWeight: 700,
                     fontSize: "16px",
                     width: "100%",
                     textDecoration: "none",
+                    transition: "opacity 0.2s",
                   }}
-                  className="hover:opacity-90"
                 >
                   Commencer
                 </Link>
+                <p style={{
+                  textAlign: "center",
+                  fontSize: "12px",
+                  color: "#9CA3AF",
+                  marginTop: "16px",
+                }}>
+                  Diagnostic stratégique gratuit
+                </p>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Espaceur pour compenser le header fixed */}
+      <div style={{ height: headerHeight }} />
     </>
   );
 };

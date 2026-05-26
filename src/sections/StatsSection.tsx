@@ -39,7 +39,7 @@ export const StatsSection: React.FC = () => {
             {/* Titre */}
             <h2 style={{
               fontFamily: "Georgia, 'Times New Roman', serif",
-              fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
+              fontSize: "clamp(1.5rem, 3.5vw, 2.8rem)",
               fontWeight: "900",
               color: "#FFFFFF",
               lineHeight: "1.1",
@@ -108,7 +108,7 @@ export const StatsSection: React.FC = () => {
                   {/* Chiffre */}
                   <p style={{
                     fontFamily: "Georgia, 'Times New Roman', serif",
-                    fontSize: "clamp(2.4rem, 4vw, 3.2rem)",
+                    fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
                     fontWeight: "900",
                     color: "#FFFFFF",
                     lineHeight: "1.0",

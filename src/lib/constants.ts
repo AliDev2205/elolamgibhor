@@ -5,12 +5,11 @@ export const SITE_DESCRIPTION =
   "EL OLAM GIBHOR accompagne les PME binationales Afrique-Europe dans la structuration financière, le pilotage stratégique et la conformité fiscale. Bâtissez une entreprise solide, pilotée par les chiffres.";
 
 export const CONTACT_INFO = {
-  phone: "+33 1 23 45 67 89",
+  address: "23B Avenue de la Réunion, 93600 Aulnay-sous-Bois, France",
+  phone: "+33 7 59 87 37 08",
   email: "contact@elolamgibhor.com",
-  address: "12 Avenue des Champs-Élysées, 75008 Paris, France",
-  hours: "Lun - Ven: 8:30 - 18:30",
-  googleMapsUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.142047744347!2d2.3018263156743913!3d48.87276290823439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc35384666f%3A0x64c80cb52c42ab0e!2sAv.%20des%20Champs-%C3%89lys%C3%A9es%2C%2075008%20Paris%2C%20France!5e0!3m2!1sfr!2sfr!4v1621234567890!5m2!1sfr!2sfr",
+  hours: "Lun–Ven : 9h00–18h00 (Europe) / 8h00–17h00 (Afrique)",
+  googleMapsUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3965.0!2d2.447369!3d6.38619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMjMnMTAuMyJOIDLCsDI2JzUwLjUiRQ!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr",
 };
 
 export const SOCIAL_LINKS = [

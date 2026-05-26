@@ -56,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
-      <body className={`${poppins.variable} font-poppins antialiased min-h-screen flex flex-col bg-bg-light text-bg-dark`}>
+    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${poppins.variable} font-poppins antialiased min-h-screen flex flex-col bg-bg-light text-bg-dark`} suppressHydrationWarning>
         {children}
       </body>
     </html>
