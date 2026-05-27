@@ -39,108 +39,106 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           1. HERO SECTION — Décalage droite appliqué
       ═══════════════════════════════════════════════════ */}
-      <section className="relative w-full min-h-screen flex items-stretch pt-[72px]">
-        <div className="flex flex-col lg:flex-row w-full">
+      <section className="relative w-full min-h-screen flex items-center justify-center pt-[72px] overflow-hidden">
+        {/* Background Image Container with Overlay */}
+        <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/img/hero-section.jpg"
+            alt="EL OLAM GIBHOR - Structuration financière"
+            className="h-full w-full object-cover object-[center_30%]"
+          />
+          <div className="absolute inset-0 bg-slate-950/70" />
+        </div>
 
-          {/* Left content — pl-32 xl:pl-44 pour décalage droite */}
-<div className="w-full lg:w-1/2 flex flex-col justify-center py-16 lg:py-0 bg-white"
-  style={{
-    paddingLeft: "clamp(2rem, 10vw, 11rem)",
-    paddingRight: "clamp(2rem, 5vw, 5rem)"
-  }}
->            <AnimatedSection animation="fadeInUp" delay={0.1} animateOnLoad>
-              <h1
+        {/* Content Centered */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20 flex flex-col items-center text-center">
+          <AnimatedSection animation="fadeInUp" delay={0.1} animateOnLoad>
+            <h1
+              style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontSize: "clamp(2.5rem, 5vw, 4.2rem)",
+                fontWeight: "900",
+                color: "#FFFFFF",
+                lineHeight: "1.1",
+                letterSpacing: "-0.02em",
+                marginBottom: "1.5rem",
+                maxWidth: "800px",
+                textAlign: "center" as const,
+              }}
+            >
+              Bâtissez une entreprise solide, pilotée par les chiffres et libérée du stress
+            </h1>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fadeInUp" delay={0.2} animateOnLoad>
+            <p
+              style={{
+                fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
+                color: "#E5E7EB",
+                lineHeight: "1.7",
+                marginBottom: "2.5rem",
+                maxWidth: "600px",
+                fontWeight: "400",
+                textAlign: "center" as const,
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              L'expertise financière, fiscale et stratégique dédiée aux PME binationales Afrique–Europe. Transformez vos défis en opportunités de croissance maîtrisée.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fadeInUp" delay={0.3} animateOnLoad>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+
+              {/* Diagnostic — bleu foncé pill */}
+              <Link
+                href="/contact"
                 style={{
-                  fontFamily: "Georgia, 'Times New Roman', serif",
-                  fontSize: "clamp(2.8rem, 5vw, 4.5rem)",
-                  fontWeight: "900",
-                  color: "#0A0A0A",
-                  lineHeight: "1.0",
-                  letterSpacing: "-0.02em",
-                  marginBottom: "1.5rem",
-                  maxWidth: "540px",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "12px 28px",
+                  backgroundColor: "#2563EB",
+                  color: "#ffffff",
+                  borderRadius: "9999px",
+                  fontWeight: "600",
+                  fontSize: "14px",
+                  textDecoration: "none",
+                  border: "none",
+                  transition: "background-color 0.2s, transform 0.2s",
                 }}
+                className="hover:bg-blue-600 active:scale-95"
               >
-                Bâtissez une entreprise solide, pilotée par les chiffres et libérée du stress
-              </h1>
-            </AnimatedSection>
+                Diagnostic
+              </Link>
 
-            <AnimatedSection animation="fadeInUp" delay={0.2} animateOnLoad>
-              <p
+              {/* Découvrir — outlined glass pill */}
+              <Link
+                href="/services"
                 style={{
-                  fontSize: "0.875rem",
-                  color: "#6B7280",
-                  lineHeight: "1.65",
-                  marginBottom: "2rem",
-                  maxWidth: "400px",
-                  fontWeight: "400",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "12px 28px",
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  color: "#ffffff",
+                  borderRadius: "9999px",
+                  fontWeight: "500",
+                  fontSize: "14px",
+                  textDecoration: "none",
+                  border: "1.5px solid rgba(255, 255, 255, 0.3)",
+                  transition: "background-color 0.2s, border-color 0.2s, transform 0.2s",
+                  backdropFilter: "blur(4px)",
                 }}
+                className="hover:bg-white/10 hover:border-white/50 active:scale-95"
               >
-                L'expertise financière, fiscale et stratégique dédiée aux PME binationales Afrique–Europe. Transformez vos défis en opportunités de croissance maîtrisée.
-              </p>
-            </AnimatedSection>
+                Découvrir
+              </Link>
 
-            <AnimatedSection animation="fadeInUp" delay={0.3} animateOnLoad>
-              <div className="flex flex-wrap items-center gap-3">
-
-                {/* Diagnostic — bleu foncé pill */}
-                <Link
-                  href="/contact"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "10px 22px",
-                    backgroundColor: "#1E3A8A",
-                    color: "#ffffff",
-                    borderRadius: "9999px",
-                    fontWeight: "600",
-                    fontSize: "13px",
-                    textDecoration: "none",
-                    border: "none",
-                    transition: "opacity 0.2s",
-                  }}
-                  className="hover:opacity-90"
-                >
-                  Diagnostic
-                </Link>
-
-                {/* Découvrir — outlined pill */}
-                <Link
-                  href="/services"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "10px 22px",
-                    backgroundColor: "#F9FAFB",
-                    color: "#374151",
-                    borderRadius: "9999px",
-                    fontWeight: "500",
-                    fontSize: "13px",
-                    textDecoration: "none",
-                    border: "1.5px solid #D1D5DB",
-                    transition: "border-color 0.2s",
-                  }}
-                  className="hover:border-gray-400"
-                >
-                  Découvrir
-                </Link>
-
-              </div>
-            </AnimatedSection>
-          </div>
-
-          {/* Right image — pleine hauteur */}
-          <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/img/hero-section.jpg"
-              alt="EL OLAM GIBHOR - Structuration financière"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
