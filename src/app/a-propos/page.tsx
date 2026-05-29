@@ -193,33 +193,40 @@ export default function AboutPage() {
 
             {/* Gauche — texte */}
             <AnimatedSection animation="fadeInRight" className="order-2 lg:order-1 w-full">
-              <div className="text-left flex flex-col items-start w-full">
-                <p style={{
-                  fontSize: "11px", fontWeight: "600", letterSpacing: "0.12em",
-                  color: "#9CA3AF", textTransform: "uppercase" as const, marginBottom: "16px",
-                }}>
-                  Pilote
-                </p>
-                <h2 style={{
-                  fontFamily: "Georgia, 'Times New Roman', serif",
-                  fontSize: "clamp(2.8rem, 5vw, 4rem)",
-                  fontWeight: "900", color: "#FFFFFF",
-                  lineHeight: "1.0", letterSpacing: "-0.03em", marginBottom: "16px",
-                }}>
-                  Ulrich<br />ADEBIAYE
-                </h2>
-                <p style={{
-                  fontSize: "0.75rem", color: "#9CA3AF",
-                  lineHeight: "1.7", marginBottom: "24px", maxWidth: "420px",
-                }}
-                className="mr-auto lg:mr-0 text-left"
-                >
-                  Senior Finance Manager | Financial Controller (MBA) | IFRS & SYSCOHADA | International Reporting & Governance | Digital Transformation & BI | Fractional CFO | Founder – EL OLAM GIBHOR | Europe & Africa
-                </p>
-                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-left">
+              <div className="flex flex-col items-start w-full">
+                
+                {/* En-tête du fondateur (centré sur mobile, aligné à gauche sur desktop) */}
+                <div className="text-center lg:text-left flex flex-col items-center lg:items-start w-full mb-6">
+                  <p style={{
+                    fontSize: "11px", fontWeight: "600", letterSpacing: "0.12em",
+                    color: "#9CA3AF", textTransform: "uppercase" as const, marginBottom: "16px",
+                  }}>
+                    Pilote
+                  </p>
+                  <h2 style={{
+                    fontFamily: "Georgia, 'Times New Roman', serif",
+                    fontSize: "clamp(2.8rem, 5vw, 4rem)",
+                    fontWeight: "900", color: "#FFFFFF",
+                    lineHeight: "1.0", letterSpacing: "-0.03em", marginBottom: "16px",
+                  }}>
+                    Ulrich<br />ADEBIAYE
+                  </h2>
+                  <p style={{
+                    fontSize: "0.75rem", color: "#9CA3AF",
+                    lineHeight: "1.7", maxWidth: "420px",
+                  }}
+                  className="mx-auto lg:mx-0 text-center lg:text-left"
+                  >
+                    Senior Finance Manager | Financial Controller (MBA) | IFRS & SYSCOHADA | International Reporting & Governance | Digital Transformation & BI | Fractional CFO | Founder – EL OLAM GIBHOR | Europe & Africa
+                  </p>
+                </div>
+
+                {/* Biographie (toujours alignée à gauche pour la lisibilité de lecture) */}
+                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-left w-full">
                   {FOUNDER.bio}
                 </p>
 
+                {/* Liste d'expertises (alignée à gauche) */}
                 <div className="flex flex-col items-start gap-3 w-full mb-7">
                   {FOUNDER.expertise.map((item, idx) => (
                     <div key={idx} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -229,6 +236,7 @@ export default function AboutPage() {
                   ))}
                 </div>
 
+                {/* Bloc de citation / Quote (aligné à gauche avec la ligne bleue de repère) */}
                 <blockquote style={{
                   paddingTop: "12px", paddingBottom: "12px", marginBottom: "32px",
                 }}
@@ -239,7 +247,8 @@ export default function AboutPage() {
                   </p>
                 </blockquote>
 
-                <div className="flex flex-wrap justify-start gap-3 w-full">
+                {/* Boutons d'action (centrés sur mobile, alignés à gauche sur desktop) */}
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 w-full">
                   <Link href="/contact" style={{
                     display: "inline-flex", alignItems: "center", justifyContent: "center",
                     padding: "10px 22px", backgroundColor: "#FFFFFF", color: "#0A0A0A",
@@ -263,7 +272,10 @@ export default function AboutPage() {
 
             {/* Droite — photo */}
             <AnimatedSection animation="fadeInLeft" className="order-1 lg:order-2 w-full">
-              <div style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}>
+              <div 
+                className="mx-auto lg:mx-0 w-full max-w-[320px] lg:max-w-none"
+                style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}
+              >
                 <img
                   src={FOUNDER.image}
                   alt={FOUNDER.name}
