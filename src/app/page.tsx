@@ -306,17 +306,24 @@ export default function Home() {
           </div>
 
           <AnimatedSection animation="fadeInUp">
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
               <Link
                 href="/contact"
                 style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "10px 28px",
                   color: "#FFFFFF",
+                  border: "1.5px solid rgba(255, 255, 255, 0.4)",
+                  borderRadius: "9999px",
+                  fontWeight: "600",
                   fontSize: "13px",
-                  fontWeight: "500",
                   textDecoration: "none",
-                  letterSpacing: "0.01em",
+                  letterSpacing: "0.02em",
+                  transition: "all 0.2s ease-in-out",
                 }}
-                className="hover:opacity-75 transition-opacity"
+                className="hover:border-white hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 Agir
               </Link>
@@ -881,9 +888,6 @@ export default function Home() {
                 lineHeight: "1.7",
                 maxWidth: "420px",
                 margin: "0 auto 24px",
-                border: "1px solid rgba(30,58,138,0.25)",
-                padding: "14px 20px",
-                borderRadius: "4px",
               }}>
                 Chaque étape est conçue pour construire sur la précédente. De la clarté à l'action, du diagnostic à la domination de votre marché.
               </p>
@@ -953,7 +957,7 @@ export default function Home() {
               },
             ].map((step, idx) => (
               <AnimatedSection key={idx} animation="fadeInUp" delay={idx * 0.1}>
-                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 mb-16 lg:mb-[120px]">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 mb-24 lg:mb-[140px]">
 
                   {/* Bullet central sur la ligne */}
                   <div className="hidden lg:block" style={{
@@ -973,14 +977,14 @@ export default function Home() {
                       {/* Gauche vide */}
                       <div className="hidden lg:block" />
                       {/* Droite — contenu + photo — paddings augmentés */}
-                      <div className="w-full text-center lg:text-left flex flex-col items-center lg:items-start px-4 lg:px-0 lg:pl-28">
+                      <div className="w-full text-center lg:text-left flex flex-col items-center lg:items-start px-6 sm:px-12 lg:px-0 lg:pl-36">
                         <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                           fontWeight: "900",
                           color: "#07111F",
                           lineHeight: "1.0",
-                          marginBottom: "8px",
+                          marginBottom: "16px",
                           letterSpacing: "-0.02em",
                         }}>
                           {step.num}
@@ -990,7 +994,7 @@ export default function Home() {
                           fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
                           fontWeight: "800",
                           color: "#07111F",
-                          marginBottom: "8px",
+                          marginBottom: "16px",
                           lineHeight: "1.25",
                         }}>
                           {step.title}
@@ -999,12 +1003,12 @@ export default function Home() {
                           fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
                           color: "#374151",
                           lineHeight: "1.6",
-                          marginBottom: "12px",
+                          marginBottom: "20px",
                           maxWidth: "340px",
                         }}>
                           {step.text}
                         </p>
-                        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
                           <Link href="/contact" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
                             padding: "6px 14px",
@@ -1018,7 +1022,7 @@ export default function Home() {
                           </Link>
                         </div>
                         {/* Photo */}
-                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3" }}>
+                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3", marginTop: "12px" }}>
                           <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                         </div>
                       </div>
@@ -1026,14 +1030,14 @@ export default function Home() {
                   ) : (
                     <>
                       {/* Gauche — contenu + photo — paddings augmentés */}
-                      <div className="w-full text-center lg:text-right flex flex-col items-center lg:items-end px-4 lg:px-0 lg:pr-28">
+                      <div className="w-full text-center lg:text-right flex flex-col items-center lg:items-end px-6 sm:px-12 lg:px-0 lg:pr-36">
                         <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                           fontWeight: "900",
                           color: "#07111F",
                           lineHeight: "1.0",
-                          marginBottom: "8px",
+                          marginBottom: "16px",
                           letterSpacing: "-0.02em",
                         }}>
                           {step.num}
@@ -1043,7 +1047,7 @@ export default function Home() {
                           fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
                           fontWeight: "800",
                           color: "#07111F",
-                          marginBottom: "8px",
+                          marginBottom: "16px",
                           lineHeight: "1.25",
                         }}>
                           {step.title}
@@ -1052,7 +1056,7 @@ export default function Home() {
                           fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
                           color: "#374151",
                           lineHeight: "1.6",
-                          marginBottom: "12px",
+                          marginBottom: "20px",
                           maxWidth: "340px",
                         }}
                         className="mx-auto lg:mr-0 lg:ml-auto"
