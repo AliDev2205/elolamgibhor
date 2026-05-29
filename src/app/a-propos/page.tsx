@@ -32,7 +32,7 @@ export default function AboutPage() {
               fontWeight: "900", color: "#FFFFFF",
               lineHeight: "1.08", letterSpacing: "-0.025em", marginBottom: "24px",
             }}>
-              {"Qui sommes-nous\u00A0?"}
+              Qui <span className="whitespace-nowrap">sommes-nous ?</span>
             </h1>
             <p style={{
               fontSize: "0.95rem", color: "#9CA3AF", lineHeight: "1.75",
@@ -211,6 +211,19 @@ export default function AboutPage() {
                   }}>
                     Ulrich<br />ADEBIAYE
                   </h2>
+                  
+                  {/* Photo uniquement visible sur mobile, placée entre le Nom et la fonction */}
+                  <div 
+                    className="block lg:hidden mx-auto my-6 w-full max-w-[320px]"
+                    style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}
+                  >
+                    <img
+                      src={FOUNDER.image}
+                      alt={FOUNDER.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
+                    />
+                  </div>
+
                   <p style={{
                     fontSize: "0.75rem", color: "#9CA3AF",
                     lineHeight: "1.7", maxWidth: "420px",
@@ -221,8 +234,8 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Biographie (toujours alignée à gauche pour la lisibilité de lecture) */}
-                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-left w-full">
+                {/* Biographie (justifiée sur tous les écrans pour un alignement propre) */}
+                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-justify w-full">
                   {FOUNDER.bio}
                 </p>
 
@@ -270,10 +283,10 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
 
-            {/* Droite — photo */}
-            <AnimatedSection animation="fadeInLeft" className="order-1 lg:order-2 w-full">
+            {/* Droite — photo (visible uniquement sur desktop) */}
+            <AnimatedSection animation="fadeInLeft" className="hidden lg:block order-1 lg:order-2 w-full">
               <div 
-                className="mx-auto lg:mx-0 w-full max-w-[320px] lg:max-w-none"
+                className="w-full"
                 style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}
               >
                 <img
