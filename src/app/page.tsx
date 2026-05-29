@@ -910,16 +910,8 @@ export default function Home() {
           {/* Timeline — Espacement accru */}
           <div className="relative">
 
-            {/* Ligne verticale centrale */}
-            <div className="hidden lg:block" style={{
-              position: "absolute",
-              left: "50%",
-              top: 0,
-              bottom: 0,
-              width: "1px",
-              backgroundColor: "rgba(7,17,31,0.2)",
-              transform: "translateX(-50%)",
-            }} />
+            {/* Ligne verticale */}
+            <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-[1px] bg-slate-900/20 -translate-x-1/2" />
 
             {/* Étapes */}
             {[
@@ -957,83 +949,20 @@ export default function Home() {
               },
             ].map((step, idx) => (
               <AnimatedSection key={idx} animation="fadeInUp" delay={idx * 0.1}>
-                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 mb-24 lg:mb-[140px]">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 mb-16 lg:mb-[140px]">
 
                   {/* Bullet central sur la ligne */}
-                  <div className="hidden lg:block" style={{
-                    position: "absolute",
-                    left: "50%",
-                    top: "18px",
-                    transform: "translateX(-50%)",
-                    width: "10px",
-                    height: "10px",
-                    borderRadius: "50%",
-                    backgroundColor: "#07111F",
-                    zIndex: 2,
-                  }} />
+                  <div className="absolute left-6 lg:left-1/2 top-[18px] -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-slate-900 z-10" />
 
                   {step.side === "right" ? (
                     <>
                       {/* Gauche vide */}
                       <div className="hidden lg:block" />
-                      {/* Droite — contenu + photo — paddings augmentés */}
-                      <div className="w-full text-center lg:text-left flex flex-col items-center lg:items-start px-6 sm:px-12 lg:px-0 lg:pl-36">
+                      {/* Droite — contenu + photo */}
+                      <div className="w-full text-left flex flex-col items-start pl-12 lg:pl-28 pr-4 lg:pr-0">
                         <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
-                          fontWeight: "900",
-                          color: "#07111F",
-                          lineHeight: "1.0",
-                          marginBottom: "16px",
-                          letterSpacing: "-0.02em",
-                        }}>
-                          {step.num}
-                        </p>
-                        <h3 style={{
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
-                          fontWeight: "800",
-                          color: "#07111F",
-                          marginBottom: "16px",
-                          lineHeight: "1.25",
-                        }}>
-                          {step.title}
-                        </h3>
-                        <p style={{
-                          fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
-                          color: "#374151",
-                          lineHeight: "1.6",
-                          marginBottom: "20px",
-                          maxWidth: "340px",
-                        }}>
-                          {step.text}
-                        </p>
-                        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-                          <Link href="/contact" style={{
-                            display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "6px 14px",
-                            backgroundColor: "transparent",
-                            color: "#07111F",
-                            border: "1.5px solid rgba(7,17,31,0.3)",
-                            borderRadius: "9999px",
-                            fontWeight: "500", fontSize: "11px", textDecoration: "none",
-                          }}>
-                            {step.cta}
-                          </Link>
-                        </div>
-                        {/* Photo */}
-                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3", marginTop: "12px" }}>
-                          <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      {/* Gauche — contenu + photo — paddings augmentés */}
-                      <div className="w-full text-center lg:text-right flex flex-col items-center lg:items-end px-6 sm:px-12 lg:px-0 lg:pr-36">
-                        <p style={{
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
+                          fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
                           fontWeight: "900",
                           color: "#07111F",
                           lineHeight: "1.0",
@@ -1059,11 +988,66 @@ export default function Home() {
                           marginBottom: "20px",
                           maxWidth: "340px",
                         }}
-                        className="mx-auto lg:mr-0 lg:ml-auto"
+                        className="mr-auto"
                         >
                           {step.text}
                         </p>
-                        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }} className="justify-center lg:justify-end">
+                        <div className="flex items-center gap-2 mb-6 justify-start w-full">
+                          <Link href="/contact" style={{
+                            display: "inline-flex", alignItems: "center", justifyContent: "center",
+                            padding: "6px 14px",
+                            backgroundColor: "transparent",
+                            color: "#07111F",
+                            border: "1.5px solid rgba(7,17,31,0.3)",
+                            borderRadius: "9999px",
+                            fontWeight: "500", fontSize: "11px", textDecoration: "none",
+                          }}>
+                            {step.cta}
+                          </Link>
+                        </div>
+                        {/* Photo */}
+                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3", marginTop: "12px" }}>
+                          <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* Gauche — contenu + photo */}
+                      <div className="w-full text-left lg:text-right flex flex-col items-start lg:items-end pl-12 lg:pl-0 pr-4 lg:pr-28">
+                        <p style={{
+                          fontFamily: "Georgia, 'Times New Roman', serif",
+                          fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
+                          fontWeight: "900",
+                          color: "#07111F",
+                          lineHeight: "1.0",
+                          marginBottom: "16px",
+                          letterSpacing: "-0.02em",
+                        }}>
+                          {step.num}
+                        </p>
+                        <h3 style={{
+                          fontFamily: "Georgia, 'Times New Roman', serif",
+                          fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
+                          fontWeight: "800",
+                          color: "#07111F",
+                          marginBottom: "16px",
+                          lineHeight: "1.25",
+                        }}>
+                          {step.title}
+                        </h3>
+                        <p style={{
+                          fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
+                          color: "#374151",
+                          lineHeight: "1.6",
+                          marginBottom: "20px",
+                          maxWidth: "340px",
+                        }}
+                        className="mr-auto lg:ml-auto lg:mr-0"
+                        >
+                          {step.text}
+                        </p>
+                        <div className="flex items-center gap-2 mb-6 justify-start lg:justify-end w-full">
                           <Link href="/contact" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
                             padding: "6px 14px",
