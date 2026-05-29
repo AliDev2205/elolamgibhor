@@ -47,13 +47,13 @@ export default function AboutPage() {
       {/* ═══════════════════════════════════════════════════
           PHILOSOPHIE
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#FFFFFF", padding: "80px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#FFFFFF", paddingTop: "clamp(3.5rem, 7vw, 6rem)", paddingBottom: "clamp(3.5rem, 7vw, 6rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* Gauche — texte */}
             <AnimatedSection animation="fadeInRight">
-              <div>
+              <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
                 <p style={{
                   fontSize: "11px", fontWeight: "600", letterSpacing: "0.12em",
                   color: "#00A896", textTransform: "uppercase" as const, marginBottom: "12px",
@@ -77,10 +77,10 @@ export default function AboutPage() {
                   conseiller avec clarté.
                 </h2>
                 <div style={{ height: "3px", width: "48px", background: "linear-gradient(to right, #1A3DB5, #00A896)", borderRadius: "9999px", marginBottom: "24px" }} />
-                <p style={{ fontSize: "0.875rem", color: "#4B5563", lineHeight: "1.75", marginBottom: "16px" }}>
+                <p style={{ fontSize: "0.875rem", color: "#4B5563", lineHeight: "1.75", marginBottom: "16px" }} className="text-center lg:text-left">
                   Nous pensons que la gestion financière ne doit pas se limiter à un exercice comptable rétrospectif. Elle doit être un outil décisionnel puissant, tourné vers l'avenir. C'est pourquoi nous croisons systématiquement l'analyse de données financières avec une compréhension fine des marchés africains et européens.
                 </p>
-                <p style={{ fontSize: "0.875rem", color: "#4B5563", lineHeight: "1.75" }}>
+                <p style={{ fontSize: "0.875rem", color: "#4B5563", lineHeight: "1.75" }} className="text-center lg:text-left">
                   Que vous soyez en phase d'hypercroissance, de restructuration ou de transmission, notre équipe s'implique personnellement à vos côtés, offrant un niveau d'engagement et de disponibilité inégalé dans l'industrie.
                 </p>
               </div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
             {/* Droite — carte engagement */}
             <AnimatedSection animation="fadeInLeft">
               <div style={{
-                backgroundColor: "#07111F", borderRadius: "16px", padding: "40px",
+                backgroundColor: "#07111F", borderRadius: "16px", padding: "clamp(1.5rem, 5vw, 2.5rem)",
                 border: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden",
               }}>
                 <div style={{
@@ -99,7 +99,7 @@ export default function AboutPage() {
                 }}>
                   ✦
                 </div>
-                <p style={{ fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", color: "#00A896", textTransform: "uppercase" as const, marginBottom: "20px" }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", color: "#00A896", textTransform: "uppercase" as const, marginBottom: "20px" }} className="text-center lg:text-left">
                   Notre engagement
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -124,17 +124,18 @@ export default function AboutPage() {
       {/* ═══════════════════════════════════════════════════
           MISSION & VISION
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#C8D0E0", padding: "72px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#C8D0E0", paddingTop: "clamp(3.5rem, 7vw, 5.5rem)", paddingBottom: "clamp(3.5rem, 7vw, 5.5rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             {/* Mission */}
             <AnimatedSection animation="fadeInLeft">
               <div style={{
-                backgroundColor: "#FFFFFF", borderRadius: "16px", padding: "40px",
+                backgroundColor: "#FFFFFF", borderRadius: "16px", padding: "clamp(1.5rem, 5vw, 2.5rem)",
                 border: "1px solid rgba(7,17,31,0.06)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-                display: "flex", gap: "24px", alignItems: "flex-start",
-              }}>
+              }}
+              className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6"
+              >
                 <div style={{
                   width: "48px", height: "48px", borderRadius: "12px",
                   backgroundColor: "rgba(0,60,151,0.06)", display: "flex",
@@ -156,10 +157,11 @@ export default function AboutPage() {
             {/* Vision */}
             <AnimatedSection animation="fadeInRight">
               <div style={{
-                backgroundColor: "#FFFFFF", borderRadius: "16px", padding: "40px",
+                backgroundColor: "#FFFFFF", borderRadius: "16px", padding: "clamp(1.5rem, 5vw, 2.5rem)",
                 border: "1px solid rgba(7,17,31,0.06)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-                display: "flex", gap: "24px", alignItems: "flex-start",
-              }}>
+              }}
+              className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6"
+              >
                 <div style={{
                   width: "48px", height: "48px", borderRadius: "12px",
                   backgroundColor: "rgba(0,191,166,0.06)", display: "flex",
@@ -185,13 +187,13 @@ export default function AboutPage() {
       {/* ═══════════════════════════════════════════════════
           FONDATEUR
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#0A0A0A", padding: "80px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#0A0A0A", paddingTop: "clamp(3.5rem, 7vw, 6rem)", paddingBottom: "clamp(3.5rem, 7vw, 6rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* Gauche — texte */}
             <AnimatedSection animation="fadeInRight">
-              <div>
+              <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
                 <p style={{
                   fontSize: "11px", fontWeight: "600", letterSpacing: "0.12em",
                   color: "#9CA3AF", textTransform: "uppercase" as const, marginBottom: "16px",
@@ -209,14 +211,16 @@ export default function AboutPage() {
                 <p style={{
                   fontSize: "0.75rem", color: "#9CA3AF",
                   lineHeight: "1.7", marginBottom: "24px", maxWidth: "420px",
-                }}>
+                }}
+                className="mx-auto lg:mx-0 text-center lg:text-left"
+                >
                   Senior Finance Manager | Financial Controller (MBA) | IFRS & SYSCOHADA | International Reporting & Governance | Digital Transformation & BI | Fractional CFO | Founder – EL OLAM GIBHOR | Europe & Africa
                 </p>
-                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }}>
+                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-center lg:text-left">
                   {FOUNDER.bio}
                 </p>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "28px" }}>
+                <div className="flex flex-col items-center lg:items-start gap-3 w-full mb-7">
                   {FOUNDER.expertise.map((item, idx) => (
                     <div key={idx} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <CheckCircle2 style={{ width: "16px", height: "16px", color: "#00A896", flexShrink: 0 }} />
@@ -226,15 +230,16 @@ export default function AboutPage() {
                 </div>
 
                 <blockquote style={{
-                  borderLeft: "3px solid #1A3DB5", paddingLeft: "20px",
-                  paddingTop: "4px", paddingBottom: "4px", marginBottom: "32px",
-                }}>
+                  paddingTop: "12px", paddingBottom: "12px", marginBottom: "32px",
+                }}
+                className="text-center lg:text-left border-t-2 lg:border-t-0 lg:border-l-3 border-[#1A3DB5] pl-0 lg:pl-5 w-full"
+                >
                   <p style={{ fontSize: "0.825rem", color: "#9CA3AF", fontStyle: "italic", lineHeight: "1.7" }}>
                     &ldquo;{FOUNDER.quote}&rdquo;
                   </p>
                 </blockquote>
 
-                <div style={{ display: "flex", gap: "12px" }}>
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 w-full">
                   <Link href="/contact" style={{
                     display: "inline-flex", alignItems: "center", justifyContent: "center",
                     padding: "10px 22px", backgroundColor: "#FFFFFF", color: "#0A0A0A",

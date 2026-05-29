@@ -145,7 +145,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           2. PROBLÈMES CLIENTS
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#4A4540", paddingTop: "140px", paddingBottom: "110px" }} className="w-full">
+      <section style={{ backgroundColor: "#4A4540", paddingTop: "clamp(4rem, 10vw, 9rem)", paddingBottom: "clamp(3rem, 8vw, 7rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
 
           {/* Header */}
@@ -848,7 +848,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           7. PROCESSUS — Timeline — Espacement accru
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#C8D0E0", padding: "110px 0 120px" }} className="w-full">
+      <section style={{ backgroundColor: "#C8D0E0", paddingTop: "clamp(4rem, 8vw, 7rem)", paddingBottom: "clamp(4rem, 8vw, 8rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
 
           {/* Header centré */}
@@ -907,7 +907,7 @@ export default function Home() {
           <div className="relative">
 
             {/* Ligne verticale centrale */}
-            <div style={{
+            <div className="hidden lg:block" style={{
               position: "absolute",
               left: "50%",
               top: 0,
@@ -953,10 +953,10 @@ export default function Home() {
               },
             ].map((step, idx) => (
               <AnimatedSection key={idx} animation="fadeInUp" delay={idx * 0.1}>
-                <div className="relative grid grid-cols-2 gap-0 mb-20 sm:mb-[120px]">
+                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 mb-16 lg:mb-[120px]">
 
                   {/* Bullet central sur la ligne */}
-                  <div style={{
+                  <div className="hidden lg:block" style={{
                     position: "absolute",
                     left: "50%",
                     top: "18px",
@@ -971,13 +971,10 @@ export default function Home() {
                   {step.side === "right" ? (
                     <>
                       {/* Gauche vide */}
-                      <div />
+                      <div className="hidden lg:block" />
                       {/* Droite — contenu + photo — paddings augmentés */}
-<div className="text-left flex flex-col items-start"
-  style={{
-    paddingLeft: "clamp(2rem, 8vw, 7rem)"
-  }}
->                        <p style={{
+                      <div className="w-full text-center lg:text-left flex flex-col items-center lg:items-start px-4 lg:px-0 lg:pl-28">
+                        <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                           fontWeight: "900",
@@ -1021,7 +1018,7 @@ export default function Home() {
                           </Link>
                         </div>
                         {/* Photo */}
-                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", aspectRatio: "4/3" }}>
+                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3" }}>
                           <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                         </div>
                       </div>
@@ -1029,11 +1026,8 @@ export default function Home() {
                   ) : (
                     <>
                       {/* Gauche — contenu + photo — paddings augmentés */}
-<div className="text-right flex flex-col items-end"
-  style={{
-    paddingRight: "clamp(2rem, 8vw, 7rem)"
-  }}
->                       <p style={{
+                      <div className="w-full text-center lg:text-right flex flex-col items-center lg:items-end px-4 lg:px-0 lg:pr-28">
+                        <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.8rem, 4vw, 3.5rem)",
                           fontWeight: "900",
@@ -1060,11 +1054,12 @@ export default function Home() {
                           lineHeight: "1.6",
                           marginBottom: "12px",
                           maxWidth: "340px",
-                          marginLeft: "auto",
-                        }}>
+                        }}
+                        className="mx-auto lg:mr-0 lg:ml-auto"
+                        >
                           {step.text}
                         </p>
-                        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "10px", marginBottom: "16px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }} className="justify-center lg:justify-end">
                           <Link href="/contact" style={{
                             display: "inline-flex", alignItems: "center", justifyContent: "center",
                             padding: "6px 14px",
@@ -1078,12 +1073,12 @@ export default function Home() {
                           </Link>
                         </div>
                         {/* Photo */}
-                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", aspectRatio: "4/3" }}>
+                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3" }}>
                           <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                         </div>
                       </div>
                       {/* Droite vide */}
-                      <div />
+                      <div className="hidden lg:block" />
                     </>
                   )}
                 </div>
@@ -1221,13 +1216,13 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════
           9. FAQ
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#C8D0E0", padding: "100px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#C8D0E0", paddingTop: "clamp(4rem, 8vw, 6.5rem)", paddingBottom: "clamp(4rem, 8vw, 6.5rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-20 items-start">
 
             {/* ── Gauche — titre + sous-titre + bouton ── */}
             <AnimatedSection animation="fadeInRight">
-              <div className="lg:sticky lg:top-[100px]">
+              <div className="text-center lg:text-left flex flex-col items-center lg:items-start lg:sticky lg:top-[100px]">
 
                 <h2 style={{
                   fontFamily: "Georgia, 'Times New Roman', serif",
@@ -1247,7 +1242,9 @@ export default function Home() {
                   lineHeight: "1.7",
                   marginBottom: "28px",
                   maxWidth: "260px",
-                }}>
+                }}
+                className="mx-auto lg:mx-0"
+                >
                   Tout ce que vous devez savoir avant de nous contacter.
                 </p>
 

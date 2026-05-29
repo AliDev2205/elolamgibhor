@@ -100,30 +100,32 @@ export default function ContactPage() {
       {/* ═══════════════════════════════════════════════════
           CONTENU PRINCIPAL
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#FFFFFF", padding: "80px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#FFFFFF", paddingTop: "clamp(3.5rem, 7vw, 6rem)", paddingBottom: "clamp(3.5rem, 7vw, 6rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
 
             {/* ── Gauche — Coordonnées + carte ── */}
             <AnimatedSection animation="fadeInRight">
-              <div>
+              <div className="text-center lg:text-left flex flex-col items-center lg:items-start w-full">
                 <h3 style={{
                   fontFamily: "Georgia, 'Times New Roman', serif",
                   fontSize: "1.6rem", fontWeight: "900",
                   color: "#07111F", marginBottom: "32px",
                   letterSpacing: "-0.02em",
-                }}>
+                }}
+                className="text-center lg:text-left"
+                >
                   Nos coordonnées
                 </h3>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "24px", marginBottom: "40px" }}>
+                <div className="w-full flex flex-col items-center lg:items-start gap-6 mb-10">
                   {[
                     { Icon: MapPin, label: "Adresse", value: CONTACT_INFO.address, href: null },
                     { Icon: Phone, label: "Téléphone", value: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}` },
                     { Icon: Mail, label: "Email", value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}` },
                     { Icon: Clock, label: "Horaires", value: CONTACT_INFO.hours, href: null },
                   ].map(({ Icon, label, value, href }) => (
-                    <div key={label} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                    <div key={label} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }} className="w-full max-w-[400px] text-left">
                       <div style={{
                         width: "40px", height: "40px", borderRadius: "10px",
                         backgroundColor: "rgba(0,60,151,0.06)",
@@ -148,7 +150,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Carte Google Maps */}
-                <div style={{ height: "220px", borderRadius: "12px", overflow: "hidden", border: "1px solid #E5E7EB" }}>
+                <div style={{ height: "220px", borderRadius: "12px", overflow: "hidden", border: "1px solid #E5E7EB", width: "100%", maxWidth: "480px" }}>
                   <iframe
                     src={CONTACT_INFO.googleMapsUrl}
                     width="100%" height="100%"
@@ -165,7 +167,7 @@ export default function ContactPage() {
               <div style={{
                 backgroundColor: "#F5F7FA",
                 borderRadius: "20px",
-                padding: "40px",
+                padding: "clamp(1.25rem, 5vw, 2.5rem)",
                 border: "1px solid #E5E7EB",
               }}>
                 <h3 style={{
@@ -173,7 +175,9 @@ export default function ContactPage() {
                   fontSize: "1.4rem", fontWeight: "900",
                   color: "#07111F", marginBottom: "28px",
                   letterSpacing: "-0.02em",
-                }}>
+                }}
+                className="text-center lg:text-left"
+                >
                   Envoyez-nous un message
                 </h3>
 

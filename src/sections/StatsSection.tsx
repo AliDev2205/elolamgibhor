@@ -13,7 +13,7 @@ const STATS_DATA = [
 
 export const StatsSection: React.FC = () => {
   return (
-    <section style={{ backgroundColor: "#4A4540", padding: "72px 0" }} className="w-full">
+    <section style={{ backgroundColor: "#4A4540", paddingTop: "clamp(3.5rem, 7vw, 5.5rem)", paddingBottom: "clamp(3.5rem, 7vw, 5.5rem)" }} className="w-full">
       <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -23,6 +23,7 @@ export const StatsSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Label */}
             <p style={{
@@ -56,12 +57,14 @@ export const StatsSection: React.FC = () => {
               lineHeight: "1.7",
               marginBottom: "28px",
               maxWidth: "340px",
-            }}>
+            }}
+            className="mx-auto lg:mx-0"
+            >
               Chaque client est une histoire de transformation. Voici ce que nous avons créé ensemble.
             </p>
 
             {/* Bouton + flèches */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }} className="justify-center lg:justify-start w-full">
               <Link
                 href="/a-propos"
                 style={{
@@ -100,7 +103,7 @@ export const StatsSection: React.FC = () => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   viewport={{ once: true }}
                   style={{
-                    padding: "32px 28px",
+                    padding: "clamp(1.25rem, 4vw, 2rem)",
                     borderTop:  idx >= 2 ? "1px solid rgba(255,255,255,0.15)" : "none",
                     borderLeft: idx % 2 === 1 ? "1px solid rgba(255,255,255,0.15)" : "none",
                   }}
@@ -132,7 +135,6 @@ export const StatsSection: React.FC = () => {
               ))}
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

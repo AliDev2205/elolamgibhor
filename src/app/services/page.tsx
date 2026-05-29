@@ -40,7 +40,7 @@ export default function ServicesPage() {
       {/* ═══════════════════════════════════════════════════
           HERO BANNER
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#0A0A0A", padding: "120px 0 80px" }} className="w-full">
+      <section style={{ backgroundColor: "#0A0A0A", paddingTop: "clamp(5rem, 10vw, 7.5rem)", paddingBottom: "clamp(3rem, 6vw, 5rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14 text-center" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <AnimatedSection animation="fadeInUp">
             <p style={{
@@ -70,7 +70,7 @@ export default function ServicesPage() {
       {/* ═══════════════════════════════════════════════════
           LISTE SERVICES — alternance gauche/droite
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#FFFFFF", padding: "80px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#FFFFFF", paddingTop: "clamp(3.5rem, 7vw, 6rem)", paddingBottom: "clamp(3.5rem, 7vw, 6rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "100px" }}>
             {SERVICES.map((service, idx) => {
@@ -88,7 +88,7 @@ export default function ServicesPage() {
                         direction: "ltr",
                         backgroundColor: "#D6DCE8",
                         borderRadius: "16px",
-                        padding: "48px",
+                        padding: "clamp(1.5rem, 5vw, 3rem)",
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
@@ -123,30 +123,36 @@ export default function ServicesPage() {
 
                     {/* Contenu */}
                     <AnimatedSection animation={isEven ? "fadeInLeft" : "fadeInRight"}>
-                      <div style={{ direction: "ltr" }}>
+                      <div style={{ direction: "ltr" }} className="text-center lg:text-left flex flex-col items-center lg:items-start">
                         <h2 style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
                           fontWeight: "900", color: "#07111F",
                           lineHeight: "1.15", letterSpacing: "-0.02em", marginBottom: "16px",
-                        }}>
+                        }}
+                        className="text-center lg:text-left"
+                        >
                           {service.title}
                         </h2>
                         <p style={{
                           fontSize: "0.9rem", color: "#4B5563",
                           lineHeight: "1.75", marginBottom: "28px",
-                        }}>
+                        }}
+                        className="text-center lg:text-left"
+                        >
                           {service.description}
                         </p>
 
-                        <div style={{ borderTop: "1px solid #E5E7EB", paddingTop: "24px" }}>
+                        <div style={{ borderTop: "1px solid #E5E7EB", paddingTop: "24px" }} className="w-full">
                           <p style={{
                             fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em",
                             color: "#1A3DB5", textTransform: "uppercase" as const, marginBottom: "16px",
-                          }}>
+                          }}
+                          className="text-center lg:text-left w-full"
+                          >
                             Champs d'intervention clés
                           </p>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-x-6">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-x-6 text-left w-full">
                             {service.details.map((detail, i) => (
                               <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
                                 <Check style={{ width: "14px", height: "14px", color: "#00A896", flexShrink: 0, marginTop: "3px" }} />
@@ -169,7 +175,7 @@ export default function ServicesPage() {
       {/* ═══════════════════════════════════════════════════
           PROCESSUS — fond sombre
       ═══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#0A0A0A", padding: "80px 0" }} className="w-full">
+      <section style={{ backgroundColor: "#0A0A0A", paddingTop: "clamp(3.5rem, 7vw, 6rem)", paddingBottom: "clamp(3.5rem, 7vw, 6rem)" }} className="w-full">
         <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-14" style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}>
 
           {/* Header */}
@@ -206,7 +212,7 @@ export default function ServicesPage() {
                   backgroundColor: "rgba(255,255,255,0.04)",
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: "14px",
-                  padding: "28px 24px",
+                  padding: "clamp(1.25rem, 4vw, 1.75rem)",
                   position: "relative",
                   overflow: "hidden",
                 }}>
