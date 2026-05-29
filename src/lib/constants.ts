@@ -13,8 +13,8 @@ export const CONTACT_INFO = {
 };
 
 export const SOCIAL_LINKS = [
-  { name: "LinkedIn", href: "https://linkedin.com", icon: "Linkedin" },
-  { name: "Twitter", href: "https://twitter.com", icon: "Twitter" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/el-olam-gibhor-france-benin/", icon: "Linkedin" },
+  { name: "Facebook", href: "https://www.facebook.com/share/1BEETcSSkZ/?mibextid=wwXIfr", icon: "Facebook" },
 ];
 
 export interface NavLink {
@@ -182,7 +182,7 @@ export const FOUNDER = {
   name: "Ulrich Adebiaye",
   role: "Fondateur & Directeur Stratégique",
   image: "/img/fondateur.jpg",
-  bio: "Fort de plus de 12 ans d'expérience en structuration financière et conseil stratégique entre l'Afrique et l'Europe, Ulrich Adebiaye a fondé EL OLAM GIBHOR avec une conviction : chaque PME mérite un pilotage financier de niveau international.",
+  bio: "Fort de plus de 12 ans d'expérience en finance d'entreprise, audit et conseil stratégique, Ulrich Adebiaye a forgé son expertise au sein de grands cabinets d'audit internationaux (Deloitte, PwC) et de multinationales de premier plan en Europe et en Afrique. Diplômé d'un MBA en Contrôle de Gestion et Direction Financière, il maîtrise la restructuration financière, les référentiels comptables et fiscaux (IFRS, SYSCOHADA) ainsi que la transformation digitale (déploiement de solutions ERP et Business Intelligence). En fondant EL OLAM GIBHOR, il met cette expérience de premier rang au service des PME binationales pour structurer leurs processus financiers, optimiser leur trésorerie et en faire de véritables leviers de croissance durable.",
   expertise: [
     "Structuration financière internationale",
     "Pilotage stratégique de PME",

@@ -22,10 +22,8 @@ const FOOTER_SERVICES = [
 ];
 
 const SOCIAL_LINKS = [
-  { name: "LinkedIn",  href: "https://linkedin.com",  Icon: Linkedin  },
-  { name: "Twitter",   href: "https://twitter.com",   Icon: Twitter   },
-  { name: "Instagram", href: "https://instagram.com", Icon: Instagram },
-  { name: "Facebook",  href: "https://facebook.com",  Icon: Facebook  },
+  { name: "LinkedIn",  href: "https://www.linkedin.com/company/el-olam-gibhor-france-benin/",  Icon: Linkedin  },
+  { name: "Facebook",  href: "https://www.facebook.com/share/1BEETcSSkZ/?mibextid=wwXIfr",  Icon: Facebook  },
 ];
 
 export const Footer: React.FC = () => {

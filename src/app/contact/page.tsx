@@ -2,11 +2,17 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle, Building2, Hash, FileText } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { CONTACT_INFO } from "@/lib/constants";
+
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.729-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.488 1.977 14.021 1.053 11.998 1.053c-5.444 0-9.87 4.372-9.874 9.8.001 2.03.535 4.02 1.547 5.765l-.974 3.562 3.65-.958zm12.35-5.321c-.328-.164-1.94-.959-2.241-1.07-.301-.11-.52-.164-.74.164-.22.329-.85 1.07-1.042 1.29-.191.22-.383.246-.71.082-.329-.164-1.389-.512-2.646-1.633-.978-.872-1.637-1.95-1.829-2.277-.193-.329-.02-.507.144-.669.148-.146.329-.383.493-.575.165-.192.22-.329.329-.548.11-.219.055-.411-.028-.575-.082-.164-.74-1.782-1.014-2.44-.267-.643-.539-.556-.74-.566-.207-.01-.444-.012-.68-.012-.237 0-.623.089-.949.444-.328.356-1.253 1.226-1.253 2.988 0 1.762 1.282 3.462 1.462 3.702.18.24 2.525 3.856 6.118 5.4 1.83.788 3.256 1.253 4.371 1.605 1.84.585 3.513.5 4.836.303 1.474-.22 3.013-1.233 3.431-2.427.417-1.194.417-2.22.293-2.439-.124-.219-.444-.329-.773-.493z" />
+  </svg>
+);
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
@@ -118,35 +124,165 @@ export default function ContactPage() {
                   Nos coordonnées
                 </h3>
 
-                <div className="w-full flex flex-col items-center lg:items-start gap-6 mb-10">
-                  {[
-                    { Icon: MapPin, label: "Adresse", value: CONTACT_INFO.address, href: null },
-                    { Icon: Phone, label: "Téléphone", value: CONTACT_INFO.phone, href: `tel:${CONTACT_INFO.phone.replace(/\s+/g, "")}` },
-                    { Icon: Mail, label: "Email", value: CONTACT_INFO.email, href: `mailto:${CONTACT_INFO.email}` },
-                    { Icon: Clock, label: "Horaires", value: CONTACT_INFO.hours, href: null },
-                  ].map(({ Icon, label, value, href }) => (
-                    <div key={label} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }} className="w-full max-w-[400px] text-left">
-                      <div style={{
-                        width: "40px", height: "40px", borderRadius: "10px",
-                        backgroundColor: "rgba(0,60,151,0.06)",
-                        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                      }}>
-                        <Icon style={{ width: "18px", height: "18px", color: "#1A3DB5" }} />
+                {/* Cartes Bureaux France / Bénin */}
+                <div style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "20px",
+                  width: "100%",
+                  maxWidth: "480px",
+                  marginBottom: "28px",
+                }}>
+                  {/* Bureau Bénin */}
+                  <div style={{
+                    backgroundColor: "#F9FAFB",
+                    borderRadius: "14px",
+                    padding: "20px",
+                    border: "1px solid #E5E7EB",
+                    textAlign: "left" as const,
+                  }}>
+                    <p style={{
+                      fontSize: "11px",
+                      fontWeight: "700",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase" as const,
+                      color: "#1A3DB5",
+                      marginBottom: "12px",
+                    }}>
+                      🇧🇯 Bureau Bénin (Cotonou)
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <MapPin size={15} style={{ color: "#1A3DB5", flexShrink: 0, marginTop: "2px" }} />
+                        <span>Cotonou, Bénin</span>
                       </div>
-                      <div>
-                        <p style={{ fontSize: "10px", fontWeight: "700", letterSpacing: "0.1em", color: "#07111F", textTransform: "uppercase" as const, marginBottom: "4px" }}>
-                          {label}
-                        </p>
-                        {href ? (
-                          <a href={href} style={{ fontSize: "0.825rem", color: "#4B5563", textDecoration: "none" }}>
-                            {value}
-                          </a>
-                        ) : (
-                          <p style={{ fontSize: "0.825rem", color: "#4B5563", lineHeight: "1.6" }}>{value}</p>
-                        )}
+                      <a href="tel:+2290161195319" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563", textDecoration: "none" }}>
+                        <Phone size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                        <span>+229 01 61 195 319</span>
+                      </a>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <FileText size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                        <span>RCCM : RB/COT/17 A 33790</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <Hash size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                        <span>IFU : 1201503044102</span>
                       </div>
                     </div>
-                  ))}
+
+                    {/* Bouton WhatsApp Bénin */}
+                    <a
+                      href="https://wa.me/2290161195319"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        padding: "8px 16px",
+                        backgroundColor: "#25D366",
+                        color: "#FFFFFF",
+                        borderRadius: "9999px",
+                        fontWeight: "600",
+                        fontSize: "11px",
+                        textDecoration: "none",
+                        marginTop: "14px",
+                        transition: "background-color 0.2s, transform 0.2s",
+                      }}
+                      className="hover:bg-[#20ba56] hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    >
+                      <WhatsAppIcon style={{ width: "14px", height: "14px" }} />
+                      WhatsApp Bénin
+                    </a>
+                  </div>
+
+                  {/* Bureau France */}
+                  <div style={{
+                    backgroundColor: "#F9FAFB",
+                    borderRadius: "14px",
+                    padding: "20px",
+                    border: "1px solid #E5E7EB",
+                    textAlign: "left" as const,
+                  }}>
+                    <p style={{
+                      fontSize: "11px",
+                      fontWeight: "700",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase" as const,
+                      color: "#1A3DB5",
+                      marginBottom: "12px",
+                    }}>
+                      🇫🇷 Bureau France (Paris)
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <MapPin size={15} style={{ color: "#1A3DB5", flexShrink: 0, marginTop: "2px" }} />
+                        <span>23B Avenue de la Réunion, 93600 Aulnay-sous-Bois</span>
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        <a href="tel:+33759873708" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563", textDecoration: "none" }}>
+                          <Phone size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                          <span>+33 7 59 87 37 08</span>
+                        </a>
+                        <a href="tel:+33758463169" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563", textDecoration: "none", marginLeft: "25px" }}>
+                          <span>+33 7 58 46 31 69</span>
+                        </a>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <Building2 size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                        <span>SIRET : 992 354 589 00010</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <FileText size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                        <span>Code APE : 70.22Z</span>
+                      </div>
+                    </div>
+
+                    {/* Bouton WhatsApp France */}
+                    <a
+                      href="https://wa.me/33759873708"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        padding: "8px 16px",
+                        backgroundColor: "#25D366",
+                        color: "#FFFFFF",
+                        borderRadius: "9999px",
+                        fontWeight: "600",
+                        fontSize: "11px",
+                        textDecoration: "none",
+                        marginTop: "14px",
+                        transition: "background-color 0.2s, transform 0.2s",
+                      }}
+                      className="hover:bg-[#20ba56] hover:scale-[1.02] active:scale-[0.98] transition-all"
+                    >
+                      <WhatsAppIcon style={{ width: "14px", height: "14px" }} />
+                      WhatsApp France
+                    </a>
+                  </div>
+
+                  {/* Infos Générales */}
+                  <div style={{
+                    backgroundColor: "#F9FAFB",
+                    borderRadius: "14px",
+                    padding: "16px 20px",
+                    border: "1px solid #E5E7EB",
+                    textAlign: "left" as const,
+                  }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                      <a href="mailto:contact@elolamgibhor.com" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563", textDecoration: "none" }}>
+                        <Mail size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
+                        <span>contact@elolamgibhor.com</span>
+                      </a>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
+                        <Clock size={15} style={{ color: "#1A3DB5", flexShrink: 0, marginTop: "2px" }} />
+                        <span>{CONTACT_INFO.hours}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Carte Google Maps */}
