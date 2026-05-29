@@ -908,189 +908,196 @@ export default function Home() {
           </AnimatedSection>
 
           {/* Timeline — Espacement accru */}
-          <div className="relative">
+<div className="relative">
 
-            {/* Ligne verticale */}
+  {/* Ligne verticale CENTRÉE sur tous les écrans */}
+  <div 
+    className="absolute left-1/2 -translate-x-1/2" 
+    style={{
+      top: 0,
+      bottom: 0,
+      width: "1px",
+      backgroundColor: "rgba(7,17,31,0.2)",
+    }} 
+  />
+
+  {/* Étapes */}
+  {[
+    {
+      num: "01",
+      title: "Diagnostic complet",
+      text: "Nous analysons votre situation financière, vos risques cachés, vos opportunités manquées. Rien n'échappe à notre regard.",
+      cta: "Commencer",
+      img: "/img/diagnostic.jpg",
+      side: "right",
+    },
+    {
+      num: "02",
+      title: "Structuration stratégique",
+      text: "Nous construisons les fondations solides de votre croissance. Processus clairs, structures adaptées, vision partagée.",
+      cta: "Avancer",
+      img: "/img/structuration.jpg",
+      side: "left",
+    },
+    {
+      num: "03",
+      title: "Pilotage en temps réel",
+      text: "Vous voyez enfin vos chiffres clairement. Des tableaux de bord qui parlent votre langue, des décisions éclairées chaque jour.",
+      cta: "Piloter",
+      img: "/img/pilotage.jpg",
+      side: "right",
+    },
+    {
+      num: "04",
+      title: "Croissance durable",
+      text: "Vous maîtrisez votre expansion. Chaque décision est fondée sur des données. Chaque mouvement crée de la valeur réelle.",
+      cta: "Croître",
+      img: "/img/croissance.jpg",
+      side: "left",
+    },
+  ].map((step, idx) => (
+    <AnimatedSection key={idx} animation="fadeInUp" delay={idx * 0.1}>
+      {/* Grille en 2 colonnes sur TOUS les écrans */}
+      <div className="relative grid grid-cols-2 gap-0 mb-16 lg:mb-[140px]">
+
+        {/* Bullet central sur la ligne */}
+        <div 
+          className="absolute left-1/2 -translate-x-1/2" 
+          style={{
+            top: "18px",
+            width: "10px",
+            height: "10px",
+            borderRadius: "50%",
+            backgroundColor: "#07111F",
+            zIndex: 10,
+          }} 
+        />
+
+        {step.side === "right" ? (
+          <>
+            {/* Gauche vide */}
+            <div />
+            {/* Droite — contenu + photo */}
             <div 
-              className="absolute left-6 lg:left-1/2 -translate-x-1/2" 
+              className="text-left flex flex-col items-start"
               style={{
-                top: 0,
-                bottom: 0,
-                width: "1px",
-                backgroundColor: "rgba(7,17,31,0.2)",
-              }} 
-            />
-
-            {/* Étapes */}
-            {[
-              {
-                num: "01",
-                title: "Diagnostic complet",
-                text: "Nous analysons votre situation financière, vos risques cachés, vos opportunités manquées. Rien n'échappe à notre regard.",
-                cta: "Commencer",
-                img: "/img/diagnostic.jpg",
-                side: "right",
-              },
-              {
-                num: "02",
-                title: "Structuration stratégique",
-                text: "Nous construisons les fondations solides de votre croissance. Processus clairs, structures adaptées, vision partagée.",
-                cta: "Avancer",
-                img: "/img/structuration.jpg",
-                side: "left",
-              },
-              {
-                num: "03",
-                title: "Pilotage en temps réel",
-                text: "Vous voyez enfin vos chiffres clairement. Des tableaux de bord qui parlent votre langue, des décisions éclairées chaque jour.",
-                cta: "Piloter",
-                img: "/img/pilotage.jpg",
-                side: "right",
-              },
-              {
-                num: "04",
-                title: "Croissance durable",
-                text: "Vous maîtrisez votre expansion. Chaque décision est fondée sur des données. Chaque mouvement crée de la valeur réelle.",
-                cta: "Croître",
-                img: "/img/croissance.jpg",
-                side: "left",
-              },
-            ].map((step, idx) => (
-              <AnimatedSection key={idx} animation="fadeInUp" delay={idx * 0.1}>
-                <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 mb-16 lg:mb-[140px]">
-
-                  {/* Bullet central sur la ligne */}
-                  <div 
-                    className="absolute left-6 lg:left-1/2 -translate-x-1/2" 
-                    style={{
-                      top: "18px",
-                      width: "10px",
-                      height: "10px",
-                      borderRadius: "50%",
-                      backgroundColor: "#07111F",
-                      zIndex: 10,
-                    }} 
-                  />
-
-                  {step.side === "right" ? (
-                    <>
-                      {/* Gauche vide */}
-                      <div className="hidden lg:block" />
-                      {/* Droite — contenu + photo */}
-                      <div className="w-full text-left flex flex-col items-start pl-16 lg:pl-28 pr-4 lg:pr-0">
-                        <p style={{
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
-                          fontWeight: "900",
-                          color: "#07111F",
-                          lineHeight: "1.0",
-                          marginBottom: "16px",
-                          letterSpacing: "-0.02em",
-                        }}>
-                          {step.num}
-                        </p>
-                        <h3 style={{
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
-                          fontWeight: "800",
-                          color: "#07111F",
-                          marginBottom: "16px",
-                          lineHeight: "1.25",
-                        }}>
-                          {step.title}
-                        </h3>
-                        <p style={{
-                          fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
-                          color: "#374151",
-                          lineHeight: "1.6",
-                          marginBottom: "20px",
-                          maxWidth: "340px",
-                        }}
-                        className="mr-auto"
-                        >
-                          {step.text}
-                        </p>
-                        <div className="flex items-center gap-2 mb-6 justify-start w-full">
-                          <Link href="/contact" style={{
-                            display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "6px 14px",
-                            backgroundColor: "transparent",
-                            color: "#07111F",
-                            border: "1.5px solid rgba(7,17,31,0.3)",
-                            borderRadius: "9999px",
-                            fontWeight: "500", fontSize: "11px", textDecoration: "none",
-                          }}>
-                            {step.cta}
-                          </Link>
-                        </div>
-                        {/* Photo */}
-                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3", marginTop: "12px" }}>
-                          <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      {/* Gauche — contenu + photo */}
-                      <div className="w-full text-left lg:text-right flex flex-col items-start lg:items-end pl-16 lg:pl-0 pr-4 lg:pr-28">
-                        <p style={{
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
-                          fontWeight: "900",
-                          color: "#07111F",
-                          lineHeight: "1.0",
-                          marginBottom: "16px",
-                          letterSpacing: "-0.02em",
-                        }}>
-                          {step.num}
-                        </p>
-                        <h3 style={{
-                          fontFamily: "Georgia, 'Times New Roman', serif",
-                          fontSize: "clamp(0.9rem, 2.5vw, 1.2rem)",
-                          fontWeight: "800",
-                          color: "#07111F",
-                          marginBottom: "16px",
-                          lineHeight: "1.25",
-                        }}>
-                          {step.title}
-                        </h3>
-                        <p style={{
-                          fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
-                          color: "#374151",
-                          lineHeight: "1.6",
-                          marginBottom: "20px",
-                          maxWidth: "340px",
-                        }}
-                        className="mr-auto lg:ml-auto lg:mr-0"
-                        >
-                          {step.text}
-                        </p>
-                        <div className="flex items-center gap-2 mb-6 justify-start lg:justify-end w-full">
-                          <Link href="/contact" style={{
-                            display: "inline-flex", alignItems: "center", justifyContent: "center",
-                            padding: "6px 14px",
-                            backgroundColor: "transparent",
-                            color: "#07111F",
-                            border: "1.5px solid rgba(7,17,31,0.3)",
-                            borderRadius: "9999px",
-                            fontWeight: "500", fontSize: "11px", textDecoration: "none",
-                          }}>
-                            {step.cta}
-                          </Link>
-                        </div>
-                        {/* Photo */}
-                        <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", maxWidth: "480px", aspectRatio: "4/3" }}>
-                          <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                        </div>
-                      </div>
-                      {/* Droite vide */}
-                      <div className="hidden lg:block" />
-                    </>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+                paddingLeft: "clamp(1.5rem, 6vw, 7rem)",
+              }}
+            >
+              <p style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
+                fontWeight: "900",
+                color: "#07111F",
+                lineHeight: "1.0",
+                marginBottom: "12px",
+                letterSpacing: "-0.02em",
+              }}>
+                {step.num}
+              </p>
+              <h3 style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontSize: "clamp(0.8rem, 2.5vw, 1.2rem)",
+                fontWeight: "800",
+                color: "#07111F",
+                marginBottom: "10px",
+                lineHeight: "1.25",
+              }}>
+                {step.title}
+              </h3>
+              <p style={{
+                fontSize: "clamp(0.6rem, 1.8vw, 0.8rem)",
+                color: "#374151",
+                lineHeight: "1.6",
+                marginBottom: "14px",
+                maxWidth: "100%",
+              }}>
+                {step.text}
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "14px" }}>
+                <Link href="/contact" style={{
+                  display: "inline-flex", alignItems: "center", justifyContent: "center",
+                  padding: "5px 12px",
+                  backgroundColor: "transparent",
+                  color: "#07111F",
+                  border: "1.5px solid rgba(7,17,31,0.3)",
+                  borderRadius: "9999px",
+                  fontWeight: "500", fontSize: "clamp(9px, 2vw, 11px)", textDecoration: "none",
+                }}>
+                  {step.cta}
+                </Link>
+              </div>
+              {/* Photo */}
+              <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", aspectRatio: "4/3" }}>
+                <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Gauche — contenu + photo */}
+            <div 
+              className="text-right flex flex-col items-end"
+              style={{
+                paddingRight: "clamp(1.5rem, 6vw, 7rem)",
+              }}
+            >
+              <p style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
+                fontWeight: "900",
+                color: "#07111F",
+                lineHeight: "1.0",
+                marginBottom: "12px",
+                letterSpacing: "-0.02em",
+              }}>
+                {step.num}
+              </p>
+              <h3 style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontSize: "clamp(0.8rem, 2.5vw, 1.2rem)",
+                fontWeight: "800",
+                color: "#07111F",
+                marginBottom: "10px",
+                lineHeight: "1.25",
+              }}>
+                {step.title}
+              </h3>
+              <p style={{
+                fontSize: "clamp(0.6rem, 1.8vw, 0.8rem)",
+                color: "#374151",
+                lineHeight: "1.6",
+                marginBottom: "14px",
+                maxWidth: "100%",
+              }}>
+                {step.text}
+              </p>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "8px", marginBottom: "14px" }}>
+                <Link href="/contact" style={{
+                  display: "inline-flex", alignItems: "center", justifyContent: "center",
+                  padding: "5px 12px",
+                  backgroundColor: "transparent",
+                  color: "#07111F",
+                  border: "1.5px solid rgba(7,17,31,0.3)",
+                  borderRadius: "9999px",
+                  fontWeight: "500", fontSize: "clamp(9px, 2vw, 11px)", textDecoration: "none",
+                }}>
+                  {step.cta}
+                </Link>
+              </div>
+              {/* Photo */}
+              <div style={{ borderRadius: "8px", overflow: "hidden", width: "100%", aspectRatio: "4/3" }}>
+                <img src={step.img} alt={step.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              </div>
+            </div>
+            {/* Droite vide */}
+            <div />
+          </>
+        )}
+      </div>
+    </AnimatedSection>
+  ))}
+</div>
         </div>
       </section>
 

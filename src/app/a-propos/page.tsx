@@ -32,7 +32,7 @@ export default function AboutPage() {
               fontWeight: "900", color: "#FFFFFF",
               lineHeight: "1.08", letterSpacing: "-0.025em", marginBottom: "24px",
             }}>
-              Qui sommes-nous ?
+              {"Qui sommes-nous\u00A0?"}
             </h1>
             <p style={{
               fontSize: "0.95rem", color: "#9CA3AF", lineHeight: "1.75",
@@ -192,8 +192,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* Gauche — texte */}
-            <AnimatedSection animation="fadeInRight">
-              <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+            <AnimatedSection animation="fadeInRight" className="order-2 lg:order-1 w-full">
+              <div className="text-left flex flex-col items-start w-full">
                 <p style={{
                   fontSize: "11px", fontWeight: "600", letterSpacing: "0.12em",
                   color: "#9CA3AF", textTransform: "uppercase" as const, marginBottom: "16px",
@@ -212,15 +212,15 @@ export default function AboutPage() {
                   fontSize: "0.75rem", color: "#9CA3AF",
                   lineHeight: "1.7", marginBottom: "24px", maxWidth: "420px",
                 }}
-                className="mx-auto lg:mx-0 text-center lg:text-left"
+                className="mr-auto lg:mr-0 text-left"
                 >
                   Senior Finance Manager | Financial Controller (MBA) | IFRS & SYSCOHADA | International Reporting & Governance | Digital Transformation & BI | Fractional CFO | Founder – EL OLAM GIBHOR | Europe & Africa
                 </p>
-                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-center lg:text-left">
+                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-left">
                   {FOUNDER.bio}
                 </p>
 
-                <div className="flex flex-col items-center lg:items-start gap-3 w-full mb-7">
+                <div className="flex flex-col items-start gap-3 w-full mb-7">
                   {FOUNDER.expertise.map((item, idx) => (
                     <div key={idx} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                       <CheckCircle2 style={{ width: "16px", height: "16px", color: "#00A896", flexShrink: 0 }} />
@@ -232,14 +232,14 @@ export default function AboutPage() {
                 <blockquote style={{
                   paddingTop: "12px", paddingBottom: "12px", marginBottom: "32px",
                 }}
-                className="text-center lg:text-left border-t-2 lg:border-t-0 lg:border-l-3 border-[#1A3DB5] pl-0 lg:pl-5 w-full"
+                className="text-left border-l-3 border-[#1A3DB5] pl-4 w-full"
                 >
                   <p style={{ fontSize: "0.825rem", color: "#9CA3AF", fontStyle: "italic", lineHeight: "1.7" }}>
                     &ldquo;{FOUNDER.quote}&rdquo;
                   </p>
                 </blockquote>
 
-                <div className="flex flex-wrap justify-center lg:justify-start gap-3 w-full">
+                <div className="flex flex-wrap justify-start gap-3 w-full">
                   <Link href="/contact" style={{
                     display: "inline-flex", alignItems: "center", justifyContent: "center",
                     padding: "10px 22px", backgroundColor: "#FFFFFF", color: "#0A0A0A",
@@ -262,7 +262,7 @@ export default function AboutPage() {
             </AnimatedSection>
 
             {/* Droite — photo */}
-            <AnimatedSection animation="fadeInLeft">
+            <AnimatedSection animation="fadeInLeft" className="order-1 lg:order-2 w-full">
               <div style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}>
                 <img
                   src={FOUNDER.image}
