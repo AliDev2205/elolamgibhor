@@ -911,7 +911,15 @@ export default function Home() {
           <div className="relative">
 
             {/* Ligne verticale */}
-            <div className="absolute left-6 lg:left-1/2 top-0 bottom-0 w-[1px] bg-slate-900/20 -translate-x-1/2" />
+            <div 
+              className="absolute left-6 lg:left-1/2 -translate-x-1/2" 
+              style={{
+                top: 0,
+                bottom: 0,
+                width: "1px",
+                backgroundColor: "rgba(7,17,31,0.2)",
+              }} 
+            />
 
             {/* Étapes */}
             {[
@@ -952,14 +960,24 @@ export default function Home() {
                 <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 mb-16 lg:mb-[140px]">
 
                   {/* Bullet central sur la ligne */}
-                  <div className="absolute left-6 lg:left-1/2 top-[18px] -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-slate-900 z-10" />
+                  <div 
+                    className="absolute left-6 lg:left-1/2 -translate-x-1/2" 
+                    style={{
+                      top: "18px",
+                      width: "10px",
+                      height: "10px",
+                      borderRadius: "50%",
+                      backgroundColor: "#07111F",
+                      zIndex: 10,
+                    }} 
+                  />
 
                   {step.side === "right" ? (
                     <>
                       {/* Gauche vide */}
                       <div className="hidden lg:block" />
                       {/* Droite — contenu + photo */}
-                      <div className="w-full text-left flex flex-col items-start pl-12 lg:pl-28 pr-4 lg:pr-0">
+                      <div className="w-full text-left flex flex-col items-start pl-16 lg:pl-28 pr-4 lg:pr-0">
                         <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
@@ -1014,7 +1032,7 @@ export default function Home() {
                   ) : (
                     <>
                       {/* Gauche — contenu + photo */}
-                      <div className="w-full text-left lg:text-right flex flex-col items-start lg:items-end pl-12 lg:pl-0 pr-4 lg:pr-28">
+                      <div className="w-full text-left lg:text-right flex flex-col items-start lg:items-end pl-16 lg:pl-0 pr-4 lg:pr-28">
                         <p style={{
                           fontFamily: "Georgia, 'Times New Roman', serif",
                           fontSize: "clamp(1.2rem, 3.5vw, 3.5rem)",
