@@ -214,7 +214,7 @@ export default function AboutPage() {
                   
                   {/* Photo uniquement visible sur mobile, placée entre le Nom et la fonction */}
                   <div 
-                    className="block lg:hidden mx-auto my-6 w-full max-w-[320px]"
+                    className="block lg:hidden mx-auto mt-6 mb-12 w-full max-w-[320px]"
                     style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}
                   >
                     <img
@@ -234,8 +234,8 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* Biographie (justifiée sur tous les écrans pour un alignement propre) */}
-                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px" }} className="text-justify w-full">
+                {/* Biographie (alignée à gauche pour éviter les grands espaces inter-mots) */}
+                <p style={{ fontSize: "0.875rem", color: "#D1D5DB", lineHeight: "1.75", marginBottom: "24px", marginTop: "32px" }} className="text-left w-full">
                   {FOUNDER.bio}
                 </p>
 
