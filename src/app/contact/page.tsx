@@ -158,7 +158,7 @@ export default function ContactPage() {
                       </div>
                       <a href="tel:+2290161195319" style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563", textDecoration: "none" }}>
                         <Phone size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />
-                        <span>+229 01 61 195 319</span>
+                        <span>+229 01 61 19 53 19</span>
                       </a>
                       <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#4B5563" }}>
                         <FileText size={15} style={{ color: "#1A3DB5", flexShrink: 0 }} />

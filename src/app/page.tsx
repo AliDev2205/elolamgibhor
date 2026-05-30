@@ -768,6 +768,19 @@ export default function Home() {
                   Ulrich<br />ADEBIAYE
                 </h2>
 
+                {/* Photo uniquement visible sur mobile, placée entre le Nom et la fonction */}
+                <div 
+                  className="block lg:hidden mx-auto mt-6 mb-12 w-full max-w-[320px]"
+                  style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={FOUNDER.image}
+                    alt={FOUNDER.name}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }}
+                  />
+                </div>
+
                 <p className="mx-auto lg:mx-0" style={{
                   fontSize: "0.75rem",
                   color: "#9CA3AF",
@@ -825,8 +838,8 @@ export default function Home() {
               </div>
             </AnimatedSection>
 
-            {/* ── Droite — photo fondateur ── */}
-            <AnimatedSection animation="fadeInLeft">
+            {/* ── Droite — photo fondateur (visible uniquement sur desktop) ── */}
+            <AnimatedSection animation="fadeInLeft" className="hidden lg:block w-full">
               <div style={{
                 borderRadius: "14px",
                 overflow: "hidden",
