@@ -228,7 +228,7 @@ export default function AboutPage() {
                     fontSize: "0.75rem", color: "#9CA3AF",
                     lineHeight: "1.7", maxWidth: "420px",
                   }}
-                  className="mx-auto lg:mx-0 text-center lg:text-left"
+                  className="mx-auto lg:mx-0 text-center lg:text-left mt-8 lg:mt-0"
                   >
                     Senior Finance Manager | Financial Controller (MBA) | IFRS & SYSCOHADA | International Reporting & Governance | Digital Transformation & BI | Fractional CFO | Founder – EL OLAM GIBHOR | Europe & Africa
                   </p>

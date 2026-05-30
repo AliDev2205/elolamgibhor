@@ -744,7 +744,7 @@ export default function Home() {
 
             {/* ── Gauche — label + nom + texte + boutons ── */}
             <AnimatedSection animation="fadeInRight">
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left flex flex-col items-center lg:items-start w-full">
                 <p style={{
                   fontSize: "11px",
                   fontWeight: "600",
@@ -781,7 +781,7 @@ export default function Home() {
                   />
                 </div>
 
-                <p className="mx-auto lg:mx-0" style={{
+                <p className="mx-auto lg:mx-0 text-center lg:text-left mt-8 lg:mt-0" style={{
                   fontSize: "0.75rem",
                   color: "#9CA3AF",
                   lineHeight: "1.7",
