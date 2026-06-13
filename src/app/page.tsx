@@ -1239,6 +1239,71 @@ export default function Home() {
         </div>
       </section>
 
+{/* ═══════════════════════════════════════════════════
+    8B. ILS NOUS FONT CONFIANCE
+═══════════════════════════════════════════════════ */}
+<section style={{ backgroundColor: "#D6DCE8", padding: "64px 0" }} className="w-full">
+  <div
+    className="w-full px-6 sm:px-8 lg:px-12 xl:px-14"
+    style={{ maxWidth: "1100px", marginLeft: "auto", marginRight: "auto" }}
+  >
+    <AnimatedSection animation="fadeInUp">
+
+      {/* Label */}
+      <p style={{
+        fontSize: "11px",
+        fontWeight: "600",
+        letterSpacing: "0.14em",
+        color: "#4B5563",
+        textTransform: "uppercase" as const,
+        textAlign: "center",
+        marginBottom: "48px",
+      }}>
+        Ils nous font confiance
+      </p>
+
+      {/* Logos */}
+      <div className="flex flex-wrap items-center justify-center gap-12 sm:gap-16 lg:gap-24">
+        {[
+          { src: "/img/entreprise1.jpg", alt: "Entreprise 1" },
+          { src: "/img/entreprise2.jpg", alt: "Entreprise 2" },
+          { src: "/img/entreprise3.jpg", alt: "Entreprise 3" },
+        ].map((logo, idx) => (
+          <div
+            key={idx}
+            style={{
+              opacity: 0.7,
+              transition: "opacity 0.2s",
+              filter: "grayscale(100%)",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLDivElement).style.opacity = "1";
+              (e.currentTarget as HTMLDivElement).style.filter = "grayscale(0%)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLDivElement).style.opacity = "0.7";
+              (e.currentTarget as HTMLDivElement).style.filter = "grayscale(100%)";
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              style={{
+                height: "72px",
+                width: "auto",
+                maxWidth: "220px",
+                objectFit: "contain",
+                display: "block",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+    </AnimatedSection>
+  </div>
+</section>
       {/* ═══════════════════════════════════════════════════
           9. FAQ
       ═══════════════════════════════════════════════════ */}

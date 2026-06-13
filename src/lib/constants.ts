@@ -182,7 +182,7 @@ export const FOUNDER = {
   name: "Ulrich Adebiaye",
   role: "Fondateur & Directeur Stratégique",
   image: "/img/fondateur.png",
-  bio: "Fort de plus de 12 ans d'expérience en finance d'entreprise, audit et conseil stratégique, Ulrich Adebiaye a forgé son expertise au sein de grands cabinets d'audit internationaux (Deloitte, PwC) et de multinationales de premier plan en Europe et en Afrique. Diplômé d'un MBA en Contrôle de Gestion et Direction Financière, il maîtrise la restructuration financière, les référentiels comptables et fiscaux (IFRS, SYSCOHADA) ainsi que la transformation digitale (déploiement de solutions ERP et Business Intelligence). En fondant EL OLAM GIBHOR, il met cette expérience de premier rang au service des PME binationales pour structurer leurs processus financiers, optimiser leur trésorerie et en faire de véritables leviers de croissance durable.",
+  bio: "Fort de +5 ans d'expérience en finance d'entreprise, audit et conseil stratégique, Ulrich Adebiaye a forgé son expertise au sein de grands cabinets d'audit internationaux (Deloitte, PwC) et de multinationales de premier plan en Europe et en Afrique. Diplômé d'un MBA en Contrôle de Gestion et Direction Financière, il maîtrise la restructuration financière, les référentiels comptables et fiscaux (IFRS, SYSCOHADA) ainsi que la transformation digitale (déploiement de solutions ERP et Business Intelligence). En fondant EL OLAM GIBHOR, il met cette expérience de premier rang au service des PME binationales pour structurer leurs processus financiers, optimiser leur trésorerie et en faire de véritables leviers de croissance durable.",
   expertise: [
     "Structuration financière internationale",
     "Pilotage stratégique de PME",
